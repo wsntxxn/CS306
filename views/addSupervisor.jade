@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  p=school
+  p=institution
+  p 添加导师
+  form(
+      action="/addSupervisor"
+      method="post"
+      )
+      input(type="text" name="name")
+      input(type="submit")
+  
