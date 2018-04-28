@@ -1,0 +1,13 @@
+extends ../../layout
+
+block content
+  h1= title
+  a(class='button', href='/addComment?name='+title) 
+    button 添加#{title}的评价
+  br
+  
+  - for(var i = 0; i < comments.length; i++)
+    p 评论 #{i+1}
+    p 经费: #{comments[i].money}
+    p 学术水平: #{comments[i].academic}
+    br
