@@ -18,7 +18,12 @@ router.get('/:name', function(req, res, next){
     supervisor_model.info(req.params.name, function(err, infomation){
         comment_model.list(req.params.name, function(err, comments){
             //console.log(infomation);
-            res.render('SJTU/seiee/supervisor', {comments: comments, name: infomation[0].name, homepage: infomation[0].homepage});
+            res.render('SJTU/seiee/supervisor', {
+                comments: comments, 
+                name: infomation[0].name, 
+                homepage: infomation[0].homepage,
+                connection: infomation[0].connection
+            });
         });
     });
     /*

@@ -3,9 +3,10 @@ var Schema = mongoose.Schema;
 
 var schema = new Schema({
     name: String,
-    //school: String,
-    //institution: String,
-    homepage: String
+    school: String,
+    institution: String,
+    homepage: String,
+    connection: Object
 });
 
 var Supervisor = mongoose.model('supervisors', schema);
@@ -42,8 +43,8 @@ var add = function(req, callback){
 
         new Supervisor({
             name: req.name,
-            //school: req.school,
-            //institution: req.institution,
+            school: req.school,
+            institution: req.institution,
             homepage: req.homepage
         }).save(function(err, doc){
             console.log(doc);
@@ -69,10 +70,35 @@ var info = function(req, callback){
     }); 
 }
 
+var addConnection = function(name, connection, callback){
+    var conditions = {name: name};  
+    var updates = {$set: {connection: connection}};
+    
+    mongoose.connect('mongodb://localhost/Computer_Network', function(err){
+        if(err) {
+            console.log('连接失败');
+            callback(err);
+        }
+        else {
+            console.log('连接成功');
+            
+            Supervisor.update(conditions, updates, function (error) {
+                mongoose.disconnect();
+                if (error)
+                    console.error(error);
+                else
+                    console.log("更新成功");
+                callback(null);
+            });  
+        } 
+    });
+}
+
 var supervisors_export = {
     list: list,
     add: add,
-    info: info
+    info: info,
+    addConnection: addConnection
 };
 
 module.exports = supervisors_export;

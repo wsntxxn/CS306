@@ -2,10 +2,20 @@ extends layout
 
 block content
   body
+    div.mini.ui.buttons(style="position:absolute;left:87%;top:8%")
+      a(href="/signin")
+        botton.ui.button 登录
+      div.or
+      a(href="/signup")
+        button.ui.button 注册
+      div.or
+      a(href="/signout")
+        button.ui.button 登出
+
     h1(style="text-align:center;color:#666699;font-family:SimSun;font-size:45px") SCIN 学术生活圈
     div.ui.five.item.menu
       a.item 新闻
       a.item 学术人
       a.item(href="/collegelist") 导师
       a.item 圈子
-      a.item(href="/signin") 我
+      a.item 我
