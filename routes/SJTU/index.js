@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var CSRouter = require('./CS/index')
+var seieeRouter = require('./seiee/index')
 
 router.get('/', function(req, res, next){
     res.render('SJTU/index', { title: '上海交通大学' });
 });
 
-router.use('/CS', CSRouter);
+router.use('/seiee', seieeRouter);
 
 module.exports = router;

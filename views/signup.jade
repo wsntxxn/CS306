@@ -1,0 +1,35 @@
+extends layout
+
+block content
+    body(style="background-color:#F0F0F0;position:relative;top:6%")
+        h3(style="text-align:center;color:#666699;font-size:35px") 注册
+        form.ui.form(style="left:41%" action="/signup" method='post')
+            div.field
+                br
+                lable(style="font-weight:bold;color:#585858") 请输入用户名:
+                br
+                input(name="username",placeholder="用户名",style="width:250px")
+                br
+            div.field
+                lable(style="font-weight:bold;color:#585858") 请输入密码:
+                br
+                input(name="password",placeholder="密码",type="password",style="width:250px")
+                br
+            div.field
+                lable(style="font-weight:bold;color:#585858") 请再次输入密码:
+                br
+                input(name="password2",placeholder="确认密码",type="password",style="width:250px")
+                br
+            //div.field
+                lable(style="font-weight:bold;color:#585858") 请输入您的邮箱:
+                br
+                input(name="email",placeholder="邮箱",style="width:250px")
+                a(href="") 点此发送验证码
+                br
+            //div.field
+                lable(style="font-weight:bold;color:#585858") 请输入验证码:
+                br
+                input(name="email",placeholder="验证码",type="password",style="width:250px")
+                br
+            div
+                button.ui.blue.basic.button(type="submit" style="position:relative;left:6% ") 注册

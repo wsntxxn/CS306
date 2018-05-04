@@ -1,0 +1,16 @@
+extends ../../layout
+
+block content
+  h3(style="text-align:center;color:#666699;font-size:35px") #{title}
+  br
+
+  body(style="background-color:#F0F0F0")
+      h3(style="text-align:center;color:#666699;font-size:35px") 导师列表
+      div
+      - for(var i=0;i<supervisors.length;++i)
+        a(href='/SJTU/seiee/'+supervisors[i].name style="color:black;position:relative;left:47%;font-size:22px" ) #{supervisors[i].name}
+        br
+        br
+
+      a(href="/addSupervisor")
+        botton.ui.blue.blue.basic.button(style="position:relative;left:46%;") 添加导师

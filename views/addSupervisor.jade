@@ -1,6 +1,7 @@
-extends layout
 
-block content
+//extends layout
+
+//block content
   p=school
   p=institution
   p 添加导师
@@ -11,3 +12,32 @@ block content
       input(type="text" name="name")
       input(type="submit")
   
+extends layout
+
+block content
+    body(style="background-color:#F0F0F0;position:relative;top:6%")
+        h3(style="text-align:center;color:#666699;font-size:35px") 添加导师
+        form.ui.form(action="/addSupervisor" style="left:41%" method="post")
+            div.field
+                br
+                label(style="font-weight:bold;color:#585858") 请输入导师姓名:
+                br
+                input(name="name",placeholder="导师姓名",style="width:250px")
+                br
+            //div.field
+                label(style="font-weight:bold;color:#585858") 请输入该导师所在学校:
+                br
+                input(name="school",placeholder="所在学校",style="width:250px")
+                br
+            //div.field
+                label(style="font-weight:bold;color:#585858") 请输入导师所在学院:
+                br
+                input(name="insititution",placeholder="所在学院",style="width:250px")
+                br
+            div.field
+                label(style="font-weight:bold;color:#585858") 请输入导师的个人主页:
+                br
+                input(name="homepage",placeholder="个人主页",style="width:250px")
+                br
+            div
+                button.ui.blue.basic.button(type="submit") 提交
