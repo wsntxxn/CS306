@@ -1,14 +1,48 @@
 extends layout
 
 block content
-  p 添加对#{name}的评价
-  
-  form(
-    action="/SJTU/CS/#{name}"
-    method="post"
-  )
-    input(type="text" name="money")
+
+  body(style="background-color:#F0F0F0")
+    h2(style="text-align:center;color:#666699;font-size:35px") 欢迎评价#{name}
     br
-    input(type="text" name="academic")
-    br
-    input(type="submit")
+
+    form.ui.form(
+      style="left:33%"
+      action="/SJTU/seiee/#{name}"
+      method="post"
+    )
+
+      //h5(style="color:#585858") 请选择您与该导师的关系：
+      div.field
+        br
+        lable(style="font-weight:bold;color:#585858") 您与该导师的关系:
+        br
+        textarea(name="relation",rows="2",placeholder="请输入您的评价",style="width:500px")
+
+      div.field
+        br
+        lable(style="font-weight:bold;color:#585858") 学术水平:
+        br
+        textarea(name="academic",rows="2",placeholder="请输入您的评价",style="width:500px")
+      div.field
+        lable(style="font-weight:bold;color:#585858")  业界联系:
+        br
+        textarea(name="industry",rows="2",placeholder="请输入您的评价",style="width:500px")
+      div.field
+        lable(style="font-weight:bold;color:#585858")  科研经费:
+        br
+        textarea(name="money",rows="2",placeholder="请输入您的评价",style="width:500px")
+      div.field
+        lable(style="font-weight:bold;color:#585858")  师生关系:
+        br
+        textarea(name="tea_stu_relationship",rows="2",placeholder="请输入您的评价",style="width:500px")
+      div.field
+        lable(style="font-weight:bold;color:#585858")  学生补助:
+        br
+        textarea(name="allowance",rows="2",placeholder="请输入您的评价",style="width:500px")
+      div.field
+        lable(style="font-weight:bold;color:#585858")  交流风格:
+        br
+        textarea(name="communication",rows="2",placeholder="请输入您的评价",style="width:500px")
+      div(style="position:absolute;left:15%")
+        button.ui.blue.basic.button(type="submit") 提交

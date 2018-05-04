@@ -2,12 +2,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var schema = new Schema({
+    author: String,
     name: String,
     academic: String,
     industry: String,
     money: String,
-    allowance: String,
     tea_stu_relationship: String,
+    allowance: String,
     communication: String
 });
 
@@ -41,14 +42,16 @@ var add = function(req , callback){
         console.log('连接成功');
 
         new Comments({
+            author: req.author,
             name: req.name,
             academic: req.academic,
+            industry: req.industry,
             money: req.money,
             allowance: req.allowance,
             tea_stu_relationship: req.tea_stu_relationship,
             communication: req.communication
         }).save(function(err, doc){
-            console.log(doc);
+            //console.log(doc);
             mongoose.disconnect();
             callback(null);
         });
