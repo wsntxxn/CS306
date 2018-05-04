@@ -13,6 +13,7 @@ var addCommentRouter = require('./routes/addComment');
 var addSupervisor = require('./routes/addSupervisor');
 var signupRouter = require('./routes/signup');
 var signinRouter = require('./routes/signin');
+var signoutRouter = require('./routes/signout');
 var pkg = require('./package');
 
 var app = express();
@@ -44,6 +45,7 @@ app.use('/addComments', addCommentRouter);
 app.use('/addSupervisor', addSupervisor);
 app.use('/signup', signupRouter);
 app.use('/signin', signinRouter);
+app.use('/signout', signoutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

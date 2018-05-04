@@ -2,32 +2,46 @@ extends ../../layout
 
 block content
   body(style="background-color:#F0F0F0")
-    h2(style="text-align:center;color:#666699;font-size:35px") 导师主页
-    h3(style="text-align:center;color:#585858") 基本信息
-    div(style="text=align:left;position:relative;left:43%")
-         | 姓名：#{name}
-         br
-         br
-         | 个人主页：#{homepage}
-         br
-         br
+    h1(style="text-align:center;color:#666699;font-size:35px") 导师主页
+    h2(style="text-align:center;color:#585858") 基本信息
+
+    div.ui.message(style="margin:0 auto;width:600px;color:black;font-family:SimHei;font-size:18px")
+      ul.list
+        p 姓名：#{name}
+        div
+         |个人主页：
+         a(href="") #{homepage}
+
     div
         br
-        h3(style="text-align:center;color:#585858") 学术关系表
+        h2(style="text-align:center;color:black") 学术关联表
+        table.ui.celled.table(style="margin:0 auto;width:300px")
+          thead
+            tr
+              th 姓名
+              th 合作次数
+          tbody
+            -for (var coAuthor in connection)
+                tr
+                  td=coAuthor
+                  td=connection[coAuthor]
 
     div
         br
         h3(style="text-align:center;color:#585858") 学生评价
-        - for(var i=0;i<comments.length;i++)
-          div.ui.message(style="margin:0 auto;width:600px;color:black")
-            p(style="position:relative;left:30%")="评价by"+ comments[i].author
-            li(style="position:relative;left:30%")="学术水平："+comments[i].academic
-            li(style="position:relative;left:30%")="业界联系："+comments[i].industry
-            li(style="position:relative;left:30%")="科研经费："+comments[i].money
-            li(style="position:relative;left:30%")="师生关系："+comments[i].tea_stu_relationship
-            li(style="position:relative;left:30%")="学生补助："+comments[i].allowance
-            li(style="position:relative;left:30%")="交流风格："+comments[i].communication
-            br
+        a(href="/addComments?name=#{name}")
+          botton.ui.blue.blue.basic.button(style="position:relative;left:47%;") 添加评价
         br
-    a(href="/addComments?name=#{name}")
-          botton.ui.blue.blue.basic.button(style="position:relative;left:46%;") 添加评价
+        br
+
+        - for(var i=0;i<comments.length;i++)
+          div.ui.message(style="margin:0 auto;width:800px;color:black;font-family:SimHei;font-size:18px")
+            ul.list
+              h3="评价by: "+comments[i].author
+              p="学术水平："+comments[i].academic
+              p="业界联系："+comments[i].industry
+              p="科研经费："+comments[i].money
+              p="师生关系："+comments[i].tea_stu_relationship
+              p="学生补助："+comments[i].allowance
+              p="交流风格："+comments[i].communication
+            br
