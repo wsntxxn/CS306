@@ -20,9 +20,9 @@ router.get('/:name', function(req, res, next){
             //console.log(infomation);
             res.render('SJTU/seiee/supervisor', {
                 comments: comments, 
-                name: infomation[0].name, 
-                homepage: infomation[0].homepage,
-                connection: infomation[0].connection
+                name: infomation.name, 
+                homepage: infomation.homepage,
+                connection: infomation.connection
             });
         });
     });

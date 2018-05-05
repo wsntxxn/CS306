@@ -7,7 +7,7 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
-var indexRouter = require('./routes/index2');
+var indexRouter = require('./routes/index');
 var SJTURouter = require('./routes/SJTU/index');
 var addCommentRouter = require('./routes/addComment');
 var addSupervisor = require('./routes/addSupervisor');

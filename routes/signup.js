@@ -1,5 +1,5 @@
 var express = require('express');
-var db = require('../models/user');
+var db = require('../models/Base');
 var sha1 = require('sha1')
 var checkNotLogin = require('../middlewares/check').checkNotLogin;
 
