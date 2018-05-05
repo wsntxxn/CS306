@@ -1,5 +1,5 @@
 var express = require('express');
-var Db=require('../models/user');
+var Db=require('../models/Base');
 var checkLogin = require('../middlewares/check').checkLogin
 
 var router = express.Router();
